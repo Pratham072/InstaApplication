@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(tool);
 
         ImageView cam =  tool.findViewById(R.id.camera);
+        LinearLayout linearlayout = findViewById(R.id.linearFirst);
 
         cam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +65,25 @@ public class MainActivity extends AppCompatActivity {
                     NotificationsFragment homeFragment = new NotificationsFragment();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container,homeFragment);
+                    transaction.addToBackStack(null);
                     transaction.commit();
                 }
                 else if(item.getItemId() == R.id.search){
                     Toast.makeText(MainActivity.this,"search feature coming soon",Toast.LENGTH_SHORT).show();
                 }
+
+                else if(item.getItemId() == R.id.user){
+
+//                    if (linearlayout != null) {
+//                        linearlayout.setVisibility(View.GONE); // Hides the LinearLayout
+//                    }
+                    userAccFragment user = new userAccFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.container, user);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+
                 return true;
 
                 //learning android
