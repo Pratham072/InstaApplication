@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"search feature coming soon",Toast.LENGTH_SHORT).show();
                 }
                 return true;
+
+                //learning android
             }
         });
     }
